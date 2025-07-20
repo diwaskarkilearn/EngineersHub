@@ -1,0 +1,70 @@
+<% layout('layout') -%>
+
+<div class="stats-grid">
+  <div class="stat-card">
+    <h3><i class="fas fa-users"></i> Total Users</h3>
+    <div class="number"><%= stats.userCount %></div>
+  </div>
+  
+  <div class="stat-card">
+    <h3><i class="fas fa-user-graduate"></i> Job Seekers</h3>
+    <div class="number"><%= stats.jobseekerCount %></div>
+  </div>
+  
+  <div class="stat-card">
+    <h3><i class="fas fa-building"></i> Employers</h3>
+    <div class="number"><%= stats.employerCount %></div>
+  </div>
+  
+  <div class="stat-card">
+    <h3><i class="fas fa-envelope"></i> Messages</h3>
+    <div class="number"><%= stats.contactCount %></div>
+  </div>
+</div>
+
+<div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <h2 style="margin-bottom: 20px; color: #2c3e50;">Dashboard Overview</h2>
+  
+  <% if (user.role === 'employer') { %>
+    <div style="background: #e8f5e8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+      <h3 style="color: #27ae60;">Employer Dashboard</h3>
+      <p>Post jobs, manage applications, and find the perfect engineering talent!</p>
+      <button style="background: #27ae60; color: white; padding: 10px 20px; border: none; border-radius: 4px; margin-top: 10px;">Post New Job</button>
+    </div>
+  <% } else { %>
+    <div style="background: #e8f4fd; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+      <h3 style="color: #185a9d;">Job Seeker Dashboard</h3>
+      <p>Explore opportunities, apply to jobs, and build your engineering career!</p>
+      <button style="background: #185a9d; color: white; padding: 10px 20px; border: none; border-radius: 4px; margin-top: 10px;">Browse Jobs</button>
+    </div>
+  <% } %>
+  
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+    <div>
+      <h4>Quick Actions</h4>
+      <ul style="list-style: none; padding: 10px 0;">
+        <li style="margin: 8px 0;"><a href="/dashboard/profile" style="color: #185a9d; text-decoration: none;">✏️ Edit Profile</a></li>
+        <li style="margin: 8px 0;"><a href="/dashboard/jobs" style="color: #185a9d; text-decoration: none;">💼 View Jobs</a></li>
+        <li style="margin: 8px 0;"><a href="/dashboard/messages" style="color: #185a9d; text-decoration: none;">📧 Check Messages</a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4>Recent Activity</h4>
+      <p style="color: #666; margin-top: 10px;">Welcome to EngineersHub! Start exploring opportunities and connecting with the engineering community in Nepal.</p>
+    </div>
+  </div>
+</div>
+<h1>Welcome, <%= user.name %>!</h1>
+  <p>Role: <%= user.role %></p>
+  
+  <!-- Dashboard Stats -->
+  <div>
+    <h2>System Stats</h2>
+    <p>Total Users: <%= stats.userCount %></p>
+    <p>Job Seekers: <%= stats.jobseekerCount %></p>
+    <p>Employers: <%= stats.employerCount %></p>
+    <p>Messages: <%= stats.contactCount %></p>
+  </div>
+  
+  <a href="/dashboard/logout">Logout</a>

@@ -1,0 +1,62 @@
+// views/jobs.ejs  
+<% layout('layout') -%>
+
+<div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <h2 style="margin-bottom: 30px; color: #2c3e50;">💼 Engineering Jobs</h2>
+  
+  <% if (user.role === 'employer') { %>
+    <div style="margin-bottom: 30px;">
+      <button style="background: #27ae60; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+        <i class="fas fa-plus"></i> Post New Job
+      </button>
+    </div>
+  <% } %>
+  
+  <div style="display: grid; gap: 20px;">
+    <!-- Sample Job Cards -->
+    <div style="border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px;">
+      <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+        <div>
+          <h3 style="color: #2c3e50; margin-bottom: 5px;">Senior Software Engineer</h3>
+          <p style="color: #185a9d; font-weight: bold;">TechCorp Nepal</p>
+        </div>
+        <span style="background: #e8f5e8; color: #27ae60; padding: 4px 12px; border-radius: 20px; font-size: 14px;">Full-time</span>
+      </div>
+      <p style="color: #666; margin-bottom: 15px;">Looking for experienced software engineer with expertise in Node.js, React, and MongoDB...</p>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; gap: 10px;">
+          <span style="background: #f0f0f0; padding: 4px 8px; border-radius: 4px; font-size: 12px;">JavaScript</span>
+          <span style="background: #f0f0f0; padding: 4px 8px; border-radius: 4px; font-size: 12px;">React</span>
+          <span style="background: #f0f0f0; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Node.js</span>
+        </div>
+        <% if (user.role === 'jobseeker') { %>
+          <button style="background: #185a9d; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">Apply Now</button>
+        <% } else { %>
+          <button style="background: #666; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">View Applications</button>
+        <% } %>
+      </div>
+    </div>
+    
+    <div style="border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px;">
+      <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+        <div>
+          <h3 style="color: #2c3e50; margin-bottom: 5px;">Civil Engineer</h3>
+          <p style="color: #185a9d; font-weight: bold;">BuildRight Construction</p>
+        </div>
+        <span style="background: #fff3cd; color: #856404; padding: 4px 12px; border-radius: 20px; font-size: 14px;">Contract</span>
+      </div>
+      <p style="color: #666; margin-bottom: 15px;">Seeking civil engineer for infrastructure projects in Kathmandu valley...</p>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; gap: 10px;">
+          <span style="background: #f0f0f0; padding: 4px 8px; border-radius: 4px; font-size: 12px;">AutoCAD</span>
+          <span style="background: #f0f0f0; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Project Management</span>
+        </div>
+        <% if (user.role === 'jobseeker') { %>
+          <button style="background: #185a9d; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">Apply Now</button>
+        <% } else { %>
+          <button style="background: #666; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">View Applications</button>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
